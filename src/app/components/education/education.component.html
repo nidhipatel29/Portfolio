@@ -1,0 +1,18 @@
+<section class="content-section" id="education" aria-labelledby="education-title">
+  <div class="section-shell">
+    <header class="section-heading">
+      <p class="section-kicker">Education</p>
+      <h2 id="education-title" class="section-title">Education</h2>
+    </header>
+    <div class="education-grid">
+      @for (entry of education; track entry.institution) {
+        <article class="education-card">
+          <p class="education-dates">{{ entry.dates }}</p>
+          <h3>{{ entry.qualification }}</h3>
+          <p class="education-institution">{{ entry.institution }}</p>
+          <p class="education-location">{{ entry.location }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

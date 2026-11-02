@@ -1,0 +1,20 @@
+<section class="content-section section-tinted" id="skills" aria-labelledby="skills-title">
+  <div class="section-shell">
+    <header class="section-heading">
+      <p class="section-kicker">Skills</p>
+      <h2 id="skills-title" class="section-title">Tools and technologies</h2>
+    </header>
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.name) {
+        <article class="skill-card">
+          <h3>{{ group.name }}</h3>
+          <ul class="skill-list" aria-label="{{ group.name }} skills">
+            @for (skill of group.skills; track skill) {
+              <li>{{ skill }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

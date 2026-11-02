@@ -1,0 +1,185 @@
+.contact-layout {
+  display: grid;
+  align-items: start;
+  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 0.75fr) minmax(320px, 1.25fr);
+}
+
+.contact-label {
+  margin: 0 0 0.45rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.contact-email {
+  color: var(--color-text);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.25em;
+}
+
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  gap: 0.7rem;
+}
+
+.contact-social-link {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.45rem;
+  text-decoration: none;
+  transition: border-color 160ms ease;
+}
+
+.contact-social-link:hover {
+  border-color: var(--color-accent);
+}
+
+.contact-social-link svg {
+  width: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.contact-form {
+  display: grid;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--color-surface) 84%, transparent);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  gap: 1rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  color: var(--color-text);
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: border-color 160ms ease;
+}
+
+.form-field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--color-accent);
+  outline: 2px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+  outline-offset: 1px;
+}
+
+.form-field input[aria-invalid='true'],
+.form-field textarea[aria-invalid='true'] {
+  border-color: #e57979;
+}
+
+.field-error {
+  margin: 0;
+  color: #e57979;
+  font-size: 0.78rem;
+}
+
+.form-status {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.84rem;
+}
+
+.form-status-error {
+  color: #e57979;
+}
+
+.form-status-success {
+  color: #3aab7b;
+}
+
+.form-submit {
+  justify-self: start;
+  gap: 0.55rem;
+  cursor: pointer;
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-social-link,
+  .form-field input,
+  .form-field textarea {
+    transition: none;
+  }
+}
+
+:root[data-theme='light'] .contact-form {
+  border-color: color-mix(in srgb, var(--color-accent) 15%, var(--color-border));
+  background: color-mix(in srgb, var(--color-surface) 82%, var(--color-accent-soft));
+  box-shadow: 0 20px 48px rgb(61 48 110 / 11%);
+}
+
+:root[data-theme='light'] .form-field input,
+:root[data-theme='light'] .form-field textarea {
+  border-color: color-mix(in srgb, var(--color-accent) 12%, var(--color-border));
+  background: color-mix(in srgb, var(--color-surface) 78%, var(--color-background));
+}
+
+:root[data-theme='light'] .form-field input:focus,
+:root[data-theme='light'] .form-field textarea:focus {
+  border-color: var(--color-accent);
+  outline-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+:root[data-theme='light'] .contact-social-link {
+  border-color: color-mix(in srgb, var(--color-accent) 12%, var(--color-border));
+  background: color-mix(in srgb, var(--color-surface) 88%, var(--color-accent-soft));
+}
+
+:root[data-theme='light'] .contact-social-link:hover {
+  background: var(--color-accent-soft);
+  box-shadow: 0 7px 18px rgb(61 48 110 / 10%);
+}

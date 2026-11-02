@@ -1,0 +1,56 @@
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-background: #0b0f1a;
+  --color-surface: #111725;
+  --color-surface-raised: #151d2c;
+  --color-border: rgb(229 234 255 / 10%);
+  --color-grid: rgb(192 204 255 / 8%);
+  --color-text: #f4f6ff;
+  --color-muted: #b1b8ca;
+  --color-accent: #a4b4ff;
+  --color-accent-strong: #e59bcf;
+  --color-accent-soft: rgb(128 111 255 / 15%);
+  --color-header: rgb(11 15 26 / 68%);
+  --shadow-soft: 0 26px 72px rgb(0 0 0 / 34%);
+  --gradient-accent: linear-gradient(112deg, #3979e8 0%, #6847c8 54%, #a13d83 100%);
+  --gradient-text: linear-gradient(112deg, #78baff 0%, #a695ff 53%, #f2a4d5 100%);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-background: #f2f1f8;
+  --color-surface: #fbf9ff;
+  --color-surface-raised: #efedf8;
+  --color-border: rgb(58 53 89 / 14%);
+  --color-grid: rgb(71 63 116 / 6%);
+  --color-text: #201c31;
+  --color-muted: #56516c;
+  --color-accent: #4356b6;
+  --color-accent-strong: #8151a5;
+  --color-accent-soft: rgb(87 78 185 / 10%);
+  --color-header: rgb(242 241 248 / 86%);
+  --shadow-soft: 0 18px 48px rgb(49 39 92 / 10%);
+  --gradient-accent: linear-gradient(112deg, #3169d7 0%, #6543bd 54%, #9f3979 100%);
+  --gradient-text: linear-gradient(112deg, #2e5fc8 0%, #7047bf 53%, #a52e70 100%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --color-background: #f2f1f8;
+    --color-surface: #fbf9ff;
+    --color-surface-raised: #efedf8;
+    --color-border: rgb(58 53 89 / 14%);
+    --color-grid: rgb(71 63 116 / 6%);
+    --color-text: #201c31;
+    --color-muted: #56516c;
+    --color-accent: #4356b6;
+    --color-accent-strong: #8151a5;
+    --color-accent-soft: rgb(87 78 185 / 10%);
+    --color-header: rgb(242 241 248 / 86%);
+    --shadow-soft: 0 18px 48px rgb(49 39 92 / 10%);
+    --gradient-accent: linear-gradient(112deg, #3169d7 0%, #6543bd 54%, #9f3979 100%);
+    --gradient-text: linear-gradient(112deg, #2e5fc8 0%, #7047bf 53%, #a52e70 100%);
+  }
+}

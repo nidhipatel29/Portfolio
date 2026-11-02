@@ -1,0 +1,232 @@
+:host {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: block;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-header);
+  backdrop-filter: blur(18px);
+}
+
+.nav-shell {
+  display: flex;
+  width: min(100% - 2.5rem, 1180px);
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-text);
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+  border-radius: 9px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 0.85rem;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.45rem);
+}
+
+.desktop-nav a,
+.mobile-nav a {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.desktop-nav a {
+  position: relative;
+  padding-block: 0.5rem;
+}
+
+.desktop-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--gradient-accent);
+  content: '';
+  transition: transform 160ms ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.is-active,
+.mobile-nav a:hover,
+.mobile-nav a.is-active {
+  color: var(--color-text);
+}
+
+.desktop-nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-toggle,
+.menu-toggle {
+  display: grid;
+  width: 2.6rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-accent);
+}
+
+.theme-toggle svg,
+.menu-toggle svg {
+  width: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.menu-toggle,
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav-shell {
+    width: min(100% - 2rem, 1180px);
+  }
+
+  .desktop-nav {
+    gap: 0.8rem;
+  }
+
+  .desktop-nav a {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-shell {
+    min-height: 68px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: grid;
+    gap: 0.15rem;
+    padding: 0 1rem;
+    overflow: hidden;
+    border-bottom: 1px solid transparent;
+    background: var(--color-background);
+    opacity: 0;
+    transform: translateY(-0.4rem);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      padding 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .mobile-nav.is-open {
+    padding-block: 0.65rem 1rem;
+    border-bottom-color: var(--color-border);
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-nav a {
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.92rem;
+  }
+
+  .mobile-nav a.is-active {
+    background: var(--color-accent-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .desktop-nav a::after,
+  .theme-toggle,
+  .menu-toggle {
+    transition: none;
+  }
+}
+
+.site-header {
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: color-mix(in srgb, var(--color-border) 72%, transparent);
+  background: color-mix(in srgb, var(--color-background) 92%, transparent);
+  box-shadow: 0 10px 32px rgb(0 0 0 / 10%);
+}
+
+.brand-mark {
+  background: var(--gradient-accent);
+  box-shadow: 0 5px 18px color-mix(in srgb, var(--color-accent) 24%, transparent);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+  }
+}
+

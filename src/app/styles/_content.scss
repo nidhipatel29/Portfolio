@@ -1,0 +1,415 @@
+.content-section {
+  counter-increment: portfolio-section;
+  padding: clamp(5.25rem, 9vw, 8.5rem) 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.section-tinted {
+  background: color-mix(in srgb, var(--color-surface) 55%, var(--color-background));
+}
+
+.section-shell {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.section-heading {
+  margin-bottom: clamp(2.5rem, 5vw, 3.8rem);
+}
+
+.section-kicker {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  color: var(--color-accent-strong);
+  content: counter(portfolio-section, decimal-leading-zero) ' / ';
+}
+
+.section-title {
+  max-width: 720px;
+  margin: 0;
+  background: var(--gradient-text);
+  background-clip: text;
+  color: transparent;
+  font-size: 2.85rem;
+  font-weight: 750;
+  line-height: 1.2;
+  -webkit-background-clip: text;
+}
+
+.section-title::after {
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin-top: 0.9rem;
+  border-radius: 99px;
+  background: var(--gradient-accent);
+  content: '';
+}
+
+.about-layout {
+  display: grid;
+  align-items: start;
+  gap: 3rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+}
+
+.about-summary {
+  max-width: 740px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1.07rem;
+  line-height: 1.9;
+}
+
+.about-facts {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-fact {
+  display: grid;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  gap: 0.25rem;
+}
+
+.about-fact dt,
+.education-dates {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.about-fact dd {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.skill-card,
+.project-card,
+.education-card {
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--color-surface) 84%, transparent);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 7%);
+  backdrop-filter: blur(14px);
+}
+
+.skill-card {
+  padding: 1.35rem;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-accent) 48%, var(--color-border));
+  box-shadow: 0 18px 36px rgb(0 0 0 / 11%);
+}
+
+.skill-card h3,
+.experience-heading h3,
+.project-card h3,
+.education-card h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.04rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.skill-list,
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0 0;
+  padding: 0;
+  gap: 0.45rem;
+  list-style: none;
+}
+
+.skill-list li,
+.project-technologies li {
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-background);
+  color: var(--color-muted);
+  font-size: 0.73rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.experience-timeline {
+  display: grid;
+  margin-left: 0.45rem;
+  padding-left: 1.75rem;
+  border-left: 1px solid var(--color-border);
+  gap: 2.5rem;
+}
+
+.experience-item {
+  position: relative;
+}
+
+.experience-item::before {
+  position: absolute;
+  top: 0.33rem;
+  left: -2.13rem;
+  width: 0.7rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-background);
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+  content: '';
+}
+
+.experience-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experience-company,
+.project-category,
+.education-institution,
+.education-location {
+  margin: 0.3rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.experience-dates {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.experience-highlights,
+.project-description {
+  display: grid;
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--color-muted);
+  gap: 0.5rem;
+  line-height: 1.7;
+}
+
+.experience-highlights li,
+.project-description li {
+  padding-left: 0.2rem;
+}
+
+.experience-highlights li::marker,
+.project-description li::marker {
+  color: var(--color-accent);
+}
+
+.projects-grid,
+.education-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.15rem, 2.5vw, 1.6rem);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-accent) 60%, var(--color-border));
+  box-shadow: var(--shadow-soft);
+}
+
+.project-index {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+}
+
+.project-description {
+  margin-bottom: 1.15rem;
+  font-size: 0.88rem;
+}
+
+.project-technologies {
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1.1rem;
+  gap: 1.1rem;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  gap: 0.45rem;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--color-accent);
+}
+
+.text-link svg {
+  width: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.education-card {
+  padding: 1.4rem;
+}
+
+.education-dates {
+  margin: 0 0 0.75rem;
+}
+
+.education-card h3 {
+  max-width: 500px;
+  font-size: 1.08rem;
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .content-section {
+    padding-inline: 1rem;
+  }
+
+  .section-title {
+    font-size: 2.15rem;
+  }
+
+  .about-layout,
+  .projects-grid,
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-layout {
+    gap: 1.6rem;
+  }
+
+  .experience-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .experience-dates {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: none;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+:root[data-theme='light'] .skill-card,
+:root[data-theme='light'] .project-card,
+:root[data-theme='light'] .education-card {
+  border-color: color-mix(in srgb, var(--color-accent) 11%, var(--color-border));
+  background: color-mix(in srgb, var(--color-surface) 84%, var(--color-accent-soft));
+  box-shadow: 0 12px 30px rgb(61 48 110 / 8%);
+}
+
+:root[data-theme='light'] .education-card {
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+@media (hover: hover) {
+  :root[data-theme='light'] .skill-card:hover,
+  :root[data-theme='light'] .project-card:hover,
+  :root[data-theme='light'] .education-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-accent) 38%, var(--color-border));
+    box-shadow: 0 20px 42px rgb(61 48 110 / 15%);
+  }
+}
+
+:root[data-theme='light'] .project-card:focus-within {
+  border-color: color-mix(in srgb, var(--color-accent) 42%, var(--color-border));
+  box-shadow: 0 16px 38px rgb(61 48 110 / 13%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme='light'] .education-card {
+    transition: none;
+  }
+
+  :root[data-theme='light'] .skill-card:hover,
+  :root[data-theme='light'] .project-card:hover,
+  :root[data-theme='light'] .education-card:hover {
+    transform: none;
+  }
+}
